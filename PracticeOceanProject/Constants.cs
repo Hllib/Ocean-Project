@@ -8,8 +8,8 @@ namespace PracticeOceanProject
 {
     public static class Constants
     {
-        public const int MaxRows = 5;
-        public const int MaxCols = 5;
+        public const int MaxRows = 25;
+        public const int MaxCols = 70;
 
         public const int DefaultNumObstacles = 75;
         public const int DefaultNumPredators = 20;
