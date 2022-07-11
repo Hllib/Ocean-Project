@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeOceanProject", "PracticeOceanProject\PracticeOceanProject.csproj", "{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanBusinessLogic", "OceanBusinessLogic\OceanBusinessLogic.csproj", "{2265CC05-6052-4E5D-9217-88B3E2889C7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

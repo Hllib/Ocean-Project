@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeOceanProject
+namespace OceanBusinessLogic
 {
     internal class Ocean
     {
@@ -13,12 +13,12 @@ namespace PracticeOceanProject
 
         public int numRows; // These values are const
         public int numCols;
-        public int size; 
+        public int size;
 
-        public int iterationCounter = 0; 
+        public int iterationCounter = 0;
 
         public int numIterations; // These are user-defined parameters
-        public int numPrey; 
+        public int numPrey;
         public int numPredators;
         public int numObstacles;
         #endregion
@@ -32,7 +32,7 @@ namespace PracticeOceanProject
             numRows = Constants.MaxRows;
             numCols = Constants.MaxCols;
             size = numRows * numCols;
-            
+
             numPrey = Constants.DefaultNumPrey;
             numPredators = Constants.DefaultNumPredators;
             numObstacles = Constants.DefaultNumObstacles;
@@ -112,10 +112,10 @@ namespace PracticeOceanProject
 
             return allVariants;
         }
-        
+
         public bool IsCellEmpty(ICoords coords)
         {
-            if (cells[coords.Row, coords.Column].GetType() == (typeof(Prey))) 
+            if (cells[coords.Row, coords.Column].GetType() == (typeof(Prey)))
             {
                 return false;
             }
@@ -142,7 +142,7 @@ namespace PracticeOceanProject
 
             return false;
         }
-      
+
         public int CountPrey()
         {
             int preyQuantity = 0;

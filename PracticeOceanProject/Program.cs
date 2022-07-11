@@ -13,7 +13,10 @@ namespace PracticeOceanProject
             Ocean myOcean = new Ocean();
             Viewer myViewer = new Viewer();
 
-            myOcean.Initialize(myViewer);
+            myOcean.Initialize();
+            myViewer.InputInfo(ref myOcean.numPrey, ref myOcean.numPredators, ref myOcean.numObstacles, ref myOcean.numIterations);
+            myOcean.FillOcean();
+
             myViewer.ShowUI(myOcean, myOcean.numRows, myOcean.numCols);
 
             Console.ReadKey();
