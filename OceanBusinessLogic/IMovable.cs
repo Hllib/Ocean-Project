@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal interface IMovable
+    public interface IMovable
     {
         ICoords ReturnNewCoords(Ocean ocean);
         void SetCoords(ICoords coords);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Cell
+    public class Cell
     {
         virtual public char Show()
         {

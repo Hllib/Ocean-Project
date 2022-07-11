@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Coordinate : ICoords
+    public class Coordinate : ICoords
     {
         public int Row { get; set; }
         public int Column { get; set; }

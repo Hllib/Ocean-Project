@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeOceanProject", "PracticeOceanProject\PracticeOceanProject.csproj", "{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanBusinessLogic", "OceanBusinessLogic\OceanBusinessLogic.csproj", "{2265CC05-6052-4E5D-9217-88B3E2889C7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanBusinessLogic", "OceanBusinessLogic\OceanBusinessLogic.csproj", "{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanOnLibrarySetup", "OceanSetupFrom_dll\OceanOnLibrarySetup.csproj", "{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCC519B3-2206-4DC5-9B52-9EF1C4CE992F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2265CC05-6052-4E5D-9217-88B3E2889C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

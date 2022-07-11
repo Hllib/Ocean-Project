@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Ocean
+    public class Ocean
     {
         #region "Fields"
         public Cell[,] cells = new Cell[Constants.MaxRows, Constants.MaxCols];

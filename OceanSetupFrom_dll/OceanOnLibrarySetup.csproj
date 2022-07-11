@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A57C49F-75D3-4570-BD0E-D7AE01A4531E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OceanBusinessLogic</RootNamespace>
-    <AssemblyName>OceanBusinessLogic</AssemblyName>
+    <ProjectGuid>{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OceanSetupFrom_dll</RootNamespace>
+    <AssemblyName>OceanSetupFrom_dll</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,16 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Coordinate.cs" />
-    <Compile Include="ICoords.cs" />
-    <Compile Include="IMovable.cs" />
-    <Compile Include="Obstacle.cs" />
-    <Compile Include="Ocean.cs" />
-    <Compile Include="Predator.cs" />
-    <Compile Include="Prey.cs" />
+    <Compile Include="IUI.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OceanBusinessLogic\OceanBusinessLogic.csproj">
+      <Project>{9a57c49f-75d3-4570-bd0e-d7ae01a4531e}</Project>
+      <Name>OceanBusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

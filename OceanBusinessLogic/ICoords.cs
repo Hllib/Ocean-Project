@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal interface ICoords
+    public interface ICoords
     {
         Coordinate[] GenerOffset(Ocean ocean);
         int Row { get; set; }

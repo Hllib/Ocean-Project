@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Prey : Cell, IMovable
+    public class Prey : Cell, IMovable
     {
         protected ICoords coords;
 

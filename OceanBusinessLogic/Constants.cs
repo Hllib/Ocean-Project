@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Constants
+    public static class Constants
     {
         public const int MaxRows = 25;
         public const int MaxCols = 70;
@@ -41,4 +41,3 @@ namespace OceanBusinessLogic
         }
     }
 }
-

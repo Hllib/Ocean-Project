@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Obstacle : Cell
+    public class Obstacle : Cell
     {
         ICoords coords;
         public override char Show()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OceanBusinessLogic
 {
-    internal class Predator : Prey
+    public class Predator : Prey
     {
         protected int timeToFeed = Constants.TimeToFeed;
 
