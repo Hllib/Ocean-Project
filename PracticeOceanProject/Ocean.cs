@@ -8,7 +8,6 @@ namespace PracticeOceanProject
 {
     internal class Ocean
     {
-        // test comment
         #region "Fields"
         public Cell[,] cells = new Cell[Constants.MaxRows, Constants.MaxCols];
 

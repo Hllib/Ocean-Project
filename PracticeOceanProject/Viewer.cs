@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeOceanProject
 {
-    internal class Viewer 
+    internal class Viewer : IUI
     {
         public void InputInfo(ref int numPrey, ref int numPredators, ref int numObstacles, ref int numIterations)
         {
