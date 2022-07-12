@@ -85,25 +85,33 @@ namespace OceanBusinessLogic
 
             else
             {
+                Cell temp = ocean.cells[newCoords.Row, newCoords.Column];
+
                 if (ocean.cells[newCoords.Row, newCoords.Column].GetType().Equals(typeof(Prey)))
                 {
                     this.timeToFeed = Constants.TimeToFeed;
+                    ocean.cells[newCoords.Row, newCoords.Column] = ocean.cells[oldCoords.Row, oldCoords.Column];
+
+                    ((IMovable)ocean.cells[newCoords.Row, newCoords.Column]).SetCoords(newCoords);
+
+                    if (IsTimeToReproduce())
+                    {
+                        this.timeToReproduce = Constants.TimeToReproduce;
+                        Reproduce(ocean, oldCoords);
+                    }
                 }
 
-                Cell temp = ocean.cells[newCoords.Row, newCoords.Column];
-                ocean.cells[newCoords.Row, newCoords.Column] = ocean.cells[oldCoords.Row, oldCoords.Column];
-
-                ((IMovable)ocean.cells[newCoords.Row, newCoords.Column]).SetCoords(newCoords);
-
-                if (IsTimeToReproduce())
+                if (ocean.cells[newCoords.Row, newCoords.Column].GetType() != (typeof(Prey)))
                 {
-                    this.timeToReproduce = Constants.TimeToReproduce;
-                    Reproduce(ocean, oldCoords);
-                }
+                    ocean.cells[newCoords.Row, newCoords.Column] = ocean.cells[oldCoords.Row, oldCoords.Column];
 
-                else
-                {
+                    ((IMovable)ocean.cells[newCoords.Row, newCoords.Column]).SetCoords(newCoords);
                     ocean.cells[oldCoords.Row, oldCoords.Column] = temp;
+                    if (IsTimeToReproduce())
+                    {
+                        this.timeToReproduce = Constants.TimeToReproduce;
+                        Reproduce(ocean, oldCoords);
+                    }
                 }
             }
 
