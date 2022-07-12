@@ -11,6 +11,9 @@ namespace OceanOnLibrarySetup
     {
         protected static int origRow;
         protected static int origCol;
+
+        protected bool IsNoPrey;
+        protected bool IsNoPred;
         protected static void WriteAt(char ch, int x, int y)
         {
             try
@@ -116,6 +119,16 @@ namespace OceanOnLibrarySetup
             Console.SetCursorPosition(0, 7);
             ClearCurrentConsoleLine();
             Console.WriteLine($"Number of predators: {predQuantity}");
+
+            if (preyQuantity == 0)
+            {
+                IsNoPrey = true;
+            }
+
+            if (predQuantity == 0)
+            {
+                IsNoPred = true;
+            }
         }
 
         public StringBuilder DisplayBorder()
@@ -142,7 +155,26 @@ namespace OceanOnLibrarySetup
                 ReDrawOcean(ocean, numRows, numCols);
                 ReDrawStats(ocean);
                 System.Threading.Thread.Sleep(25);
+
+                if (IsNoPrey)
+                {
+                    Console.Clear();
+                    DisplayOcean(ocean, numRows, numCols);
+                    Console.WriteLine("\n\t\tNO PREY LEFT");
+                    break;
+                }
+
+                if (IsNoPred)
+                {
+                    Console.Clear();
+                    DisplayOcean(ocean, numRows, numCols);
+                    Console.WriteLine("\n\t\t\tNO PREDATORS LEFT");
+                    break;
+                }
             }
+            System.Threading.Thread.Sleep(7000);
+            Console.Clear();
+            Console.WriteLine("\n\t\t\tSIMULATION OVER");
         }
     }
 }
