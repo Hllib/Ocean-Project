@@ -7,8 +7,24 @@ using OceanBusinessLogic;
 
 namespace OceanOnLibrarySetup
 {
-    internal class Viewer : IUI
+    internal class Viewer
     {
+        protected static int origRow;
+        protected static int origCol;
+        protected static void WriteAt(char ch, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.Write(ch);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
+        }
+
         public void InputInfo(ref int numPrey, ref int numPredators, ref int numObstacles, ref int numIterations)
         {
             Console.Write("Input the number of prey (default = 150) : ");
@@ -23,6 +39,34 @@ namespace OceanOnLibrarySetup
             Console.Write("Input the number of iterations: ");
             numIterations = int.Parse(Console.ReadLine());
 
+        }
+
+        public void ReDrawOcean(Ocean ocean, int numRows, int numCols)
+        {
+            origRow = 9;
+            origCol = 0;
+            Console.CursorVisible = false;
+            for (int row = 0; row < numRows; row++)
+            {
+                for (int col = 0; col < numCols; col++)
+                {
+                    if (ocean.cells[row, col] is IMovable)
+                    {
+                        WriteAt(ocean.cells[row, col].Show(), col, row);
+                    }
+                }
+            }
+
+            for (int row = 0; row < numRows; row++)
+            {
+                for (int col = 0; col < numCols; col++)
+                {
+                    if (ocean.cells[row, col].GetType() != typeof(Obstacle) && !(ocean.cells[row, col] is IMovable))
+                    {
+                        WriteAt(Constants.DefaultImage, col, row);
+                    }
+                }
+            }
         }
 
         public void DisplayOcean(Ocean ocean, int numRows, int numCols)
@@ -50,6 +94,30 @@ namespace OceanOnLibrarySetup
             return stats;
         }
 
+        public static void ClearCurrentConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
+
+        public void ReDrawStats(Ocean ocean)
+        {
+            int preyQuantity = ocean.CountPrey();
+            int predQuantity = ocean.CountPredators();
+
+            Console.SetCursorPosition(0, 5);
+            ClearCurrentConsoleLine();
+            Console.WriteLine($"Iteration: {ocean.iterationCounter}/{ocean.numIterations}");
+            Console.SetCursorPosition(0, 6);
+            ClearCurrentConsoleLine();
+            Console.WriteLine($"Number of prey: {preyQuantity}");
+            Console.SetCursorPosition(0, 7);
+            ClearCurrentConsoleLine();
+            Console.WriteLine($"Number of predators: {predQuantity}");
+        }
+
         public StringBuilder DisplayBorder()
         {
             StringBuilder stats = new StringBuilder();
@@ -67,18 +135,14 @@ namespace OceanOnLibrarySetup
             DisplayOcean(ocean, numRows, numCols);
             Console.WriteLine("\nPress any key to begin....");
             Console.ReadKey();
-            Console.Clear();
 
             for (int iteration = 1; iteration <= ocean.numIterations; iteration++)
             {
                 ocean.Run();
-                DisplayOcean(ocean, numRows, numCols);
-                System.Threading.Thread.Sleep(150);
-                Console.Clear();
+                ReDrawOcean(ocean, numRows, numCols);
+                ReDrawStats(ocean);
+                System.Threading.Thread.Sleep(25);
             }
-
-            DisplayOcean(ocean, numRows, numCols);
-            Console.WriteLine("SIMULATION OVER");
         }
     }
 }
