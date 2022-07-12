@@ -160,7 +160,7 @@ namespace OceanOnLibrarySetup
                 {
                     Console.Clear();
                     DisplayOcean(ocean, numRows, numCols);
-                    Console.WriteLine("\n\t\tNO PREY LEFT");
+                    Console.WriteLine("\n\t\t\tNO PREY LEFT");
                     break;
                 }
 
