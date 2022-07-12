@@ -207,7 +207,7 @@ namespace PracticeOceanProject
                 }
             }
             movedObjects.Clear();
-        }
+        }        
         #endregion
     }
 }
