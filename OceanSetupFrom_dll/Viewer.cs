@@ -154,7 +154,7 @@ namespace OceanOnLibrarySetup
                 ocean.Run();
                 ReDrawOcean(ocean, numRows, numCols);
                 ReDrawStats(ocean);
-                System.Threading.Thread.Sleep(25);
+                System.Threading.Thread.Sleep(100);
 
                 if (IsNoPrey)
                 {
@@ -172,7 +172,7 @@ namespace OceanOnLibrarySetup
                     break;
                 }
             }
-            System.Threading.Thread.Sleep(7000);
+            Console.ReadKey();
             Console.Clear();
             Console.WriteLine("\n\t\t\tSIMULATION OVER");
         }

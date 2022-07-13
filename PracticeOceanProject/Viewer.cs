@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PracticeOceanProject
 {
     internal class Viewer 
     {
-        protected static int origRow;
-        protected static int origCol;
+        protected static int startRow;
+        protected static int startColumn;
 
         protected bool IsNoPrey;
         protected bool IsNoPred;
-        protected static void WriteAt(char ch, int x, int y)
+        protected static void ReDrawElement(char ch, int x, int y)
         {
             try
             {
-                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.SetCursorPosition(startColumn + x, startRow + y);
                 Console.Write(ch);
             }
             catch (ArgumentOutOfRangeException e)
@@ -29,32 +30,40 @@ namespace PracticeOceanProject
 
         public void InputInfo(ref int numPrey, ref int numPredators, ref int numObstacles, ref int numIterations)
         {
-            Console.Write("Input the number of prey (default = 150) : ");
-            numPrey = int.Parse(Console.ReadLine());
+            try
+            {
+                Console.Write("Input the number of prey (default = 150) : ");
+                numPrey = int.Parse(Console.ReadLine());
 
-            Console.Write("Input the number of predators (default = 20) : ");
-            numPredators = int.Parse(Console.ReadLine());
+                Console.Write("Input the number of predators (default = 20) : ");
+                numPredators = int.Parse(Console.ReadLine());
 
-            Console.Write("Input the number of obstacles (default = 75) : ");
-            numObstacles = int.Parse(Console.ReadLine());
+                Console.Write("Input the number of obstacles (default = 75) : ");
+                numObstacles = int.Parse(Console.ReadLine());
 
-            Console.Write("Input the number of iterations: ");
-            numIterations = int.Parse(Console.ReadLine());
-
+                Console.Write("Input the number of iterations: ");
+                numIterations = int.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.Clear();
+                InputInfo(ref numPrey, ref numPredators, ref numObstacles, ref numIterations);
+            }
         }
 
         public void ReDrawOcean(Ocean ocean, int numRows, int numCols)
         {
-            origRow = 9;
-            origCol = 0;
+            startRow = 9;
+            startColumn = 0;
             Console.CursorVisible = false;
+
             for (int row = 0; row < numRows; row++)
             {
                 for (int col = 0; col < numCols; col++)
                 {
                     if (ocean.cells[row, col] is IMovable)
                     {
-                        WriteAt(ocean.cells[row, col].Show(), col, row);
+                        ReDrawElement(ocean.cells[row, col].Show(), col, row);
                     }
                 }
             }
@@ -65,7 +74,7 @@ namespace PracticeOceanProject
                 {
                     if (ocean.cells[row, col].GetType() != typeof(Obstacle) && !(ocean.cells[row, col] is IMovable))
                     {
-                        WriteAt(Constants.DefaultImage, col, row);
+                        ReDrawElement(Constants.DefaultImage, col, row);
                     }
                 }
             }
@@ -171,7 +180,7 @@ namespace PracticeOceanProject
                     break;
                 }  
             }
-            System.Threading.Thread.Sleep(7000);
+            Console.ReadKey();
             Console.Clear();
             Console.WriteLine("\n\t\t\tSIMULATION OVER");
         }

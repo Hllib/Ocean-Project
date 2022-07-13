@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanBusinessLogic", "Ocean
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanOnLibrarySetup", "OceanSetupFrom_dll\OceanOnLibrarySetup.csproj", "{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanWinForms", "OceanWinForms\OceanWinForms.csproj", "{AD09A09E-3E73-4CCE-B260-A6B11CDA39A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2AB5256-E5DA-42D8-84CB-579D1627CFBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD09A09E-3E73-4CCE-B260-A6B11CDA39A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD09A09E-3E73-4CCE-B260-A6B11CDA39A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD09A09E-3E73-4CCE-B260-A6B11CDA39A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD09A09E-3E73-4CCE-B260-A6B11CDA39A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
