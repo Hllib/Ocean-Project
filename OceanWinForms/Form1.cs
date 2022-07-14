@@ -20,7 +20,15 @@ namespace OceanWinForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbOceanField.Text = String.Empty;
+            lbOceanField.Text = String.Empty;    
+        }
+
+        public void GetInputInfo(ref int numPrey, ref int numPredators, ref int numObstacles, ref int numIterations)
+        {
+            numPrey = int.Parse(textBox1.Text);
+            numPredators = int.Parse(textBox2.Text);
+            numObstacles = int.Parse(textBox3.Text);
+            numIterations = int.Parse(textBox4.Text);
         }
 
         public void DisplayOcean(Ocean ocean, int numRows, int numCols)
@@ -42,13 +50,10 @@ namespace OceanWinForms
         private void button1_Click(object sender, EventArgs e)
         {
             Ocean myOcean = new Ocean();
-
-            myOcean.numPrey = int.Parse(textBox1.Text);
-            myOcean.numPredators = int.Parse(textBox2.Text);
-            myOcean.numObstacles = int.Parse(textBox3.Text);
-            myOcean.numIterations = int.Parse(textBox4.Text);
-
             myOcean.Initialize();
+
+            GetInputInfo(ref myOcean.numPrey, ref myOcean.numPredators, ref myOcean.numObstacles, ref myOcean.numIterations);
+
             myOcean.FillOcean();
 
             DisplayOcean(myOcean, myOcean.numRows, myOcean.numCols);          
