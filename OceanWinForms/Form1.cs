@@ -20,7 +20,57 @@ namespace OceanWinForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lbOceanField.Text = String.Empty;
+        }
+
+        public void DisplayOcean(Ocean ocean, int numRows, int numCols)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int row = 0; row < numRows; row++)
+            {
+                for (int col = 0; col < numCols; col++)
+                {
+                    stringBuilder.Append(ocean.cells[row, col].Show());
+                }
+            }
+
+            lbOceanField.MaximumSize = new Size(639, 0);
+            lbOceanField.Text = stringBuilder.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ocean myOcean = new Ocean();
+
+            myOcean.numPrey = int.Parse(textBox1.Text);
+            myOcean.numPredators = int.Parse(textBox2.Text);
+            myOcean.numObstacles = int.Parse(textBox3.Text);
+            myOcean.numIterations = int.Parse(textBox4.Text);
+
+            myOcean.Initialize();
+            myOcean.FillOcean();
+
+            DisplayOcean(myOcean, myOcean.numRows, myOcean.numCols);          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InitTimer();
+        }
+
+        public void InitTimer()
+        {
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 50; 
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
         }
+
     }
 }
