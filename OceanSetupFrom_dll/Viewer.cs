@@ -154,7 +154,7 @@ namespace OceanOnLibrarySetup
                 ocean.Run();
                 ReDrawOcean(ocean, numRows, numCols);
                 ReDrawStats(ocean);
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(25);
 
                 if (IsNoPrey)
                 {

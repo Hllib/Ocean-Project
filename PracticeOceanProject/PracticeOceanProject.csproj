@@ -48,7 +48,6 @@
     <Compile Include="Coordinate.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="InvalidInputException.cs" />
-    <Compile Include="IUI.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Ocean.cs" />
     <Compile Include="Predator.cs" />
