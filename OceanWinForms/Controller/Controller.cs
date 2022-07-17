@@ -13,6 +13,8 @@ namespace OceanWinForms.Controller
         private readonly IView _view;
         private Ocean _myOcean;
 
+        public StringBuilder sb;
+
         public Controller(IView view)
         {
             this._view = view;
@@ -25,14 +27,13 @@ namespace OceanWinForms.Controller
         private void View_InitOcean(object sender, EventArgs e)
         {
             this._myOcean.Initialize();
-            this._myOcean.InitOcean();
+            this._myOcean.FillOcean();
         }
 
         private void View_NextIteration(object sender, EventArgs e)
         {
             this._myOcean.Run();
-
+            this._view.sb = this._myOcean.ReturnOceanString();
         }
-
     }
 }

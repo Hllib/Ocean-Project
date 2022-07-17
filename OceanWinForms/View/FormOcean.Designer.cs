@@ -70,9 +70,10 @@
             // lbOceanField
             // 
             this.lbOceanField.AutoSize = true;
-            this.lbOceanField.Location = new System.Drawing.Point(134, 190);
+            this.lbOceanField.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbOceanField.Location = new System.Drawing.Point(300, 231);
             this.lbOceanField.Name = "lbOceanField";
-            this.lbOceanField.Size = new System.Drawing.Size(128, 25);
+            this.lbOceanField.Size = new System.Drawing.Size(215, 37);
             this.lbOceanField.TabIndex = 1;
             this.lbOceanField.Text = "Ocean Field";
             // 
@@ -82,9 +83,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(489, 191);
+            this.button1.Location = new System.Drawing.Point(691, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(105, 40);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,9 +93,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(618, 190);
+            this.button2.Location = new System.Drawing.Point(580, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(105, 40);
             this.button2.TabIndex = 3;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;

@@ -12,10 +12,40 @@ namespace OceanWinForms.View
 {
     public partial class FormOcean : Form, IView
     {
+        public int numPrey;
+        public int numPredators;
+        public int numObstacles;
+        public int numIterations;
+
+        public StringBuilder sb { get; set; }
 
         public FormOcean()
         {
             InitializeComponent();
+
+            lbOceanField.Text = String.Empty;
+            lbOceanField.MaximumSize = new Size(639, 0);
+
+            if(int.TryParse(tbPreyInput.Text, out numPrey))
+            {
+                numPrey = int.Parse(tbPreyInput.Text);
+            }
+
+            if (int.TryParse(tbPredInput.Text, out numPredators))
+            {
+                numPredators = int.Parse(tbPredInput.Text);
+            }
+
+            if (int.TryParse(tbPreyInput.Text, out numObstacles))
+            {
+
+                numObstacles = int.Parse(tbObstInput.Text);
+            }
+
+            if (int.TryParse(tbPreyInput.Text, out numIterations))
+            {
+                numIterations = int.Parse(tbIterInput.Text);
+            }
         }
 
         public event EventHandler NextIteration;
@@ -35,15 +65,15 @@ namespace OceanWinForms.View
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; 
+            timer1.Interval = 25; 
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.NextIteration?.Invoke(this, EventArgs.Empty);
+            lbOceanField.Text = sb.ToString();
         }
-
 
     }
 }

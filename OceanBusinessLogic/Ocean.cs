@@ -209,5 +209,22 @@ namespace OceanBusinessLogic
             movedObjects.Clear();
         }
         #endregion
+
+        #region "Display"
+        public StringBuilder ReturnOceanString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int row = 0; row < numRows; row++)
+            {
+                for (int col = 0; col < numCols; col++)
+                {
+                    stringBuilder.Append(cells[row, col].Show());
+                }
+            }
+
+            return stringBuilder;
+        }
+        #endregion
     }
 }
