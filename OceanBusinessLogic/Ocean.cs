@@ -13,7 +13,6 @@ namespace OceanBusinessLogic
 
         public int numRows; // These values are const
         public int numCols;
-        public int size;
 
         public int iterationCounter = 0;
 
@@ -31,7 +30,6 @@ namespace OceanBusinessLogic
 
             numRows = Constants.MaxRows;
             numCols = Constants.MaxCols;
-            size = numRows * numCols;
 
             numPrey = Constants.DefaultNumPrey;
             numPredators = Constants.DefaultNumPredators;

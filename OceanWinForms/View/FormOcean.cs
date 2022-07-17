@@ -12,12 +12,18 @@ namespace OceanWinForms.View
 {
     public partial class FormOcean : Form, IView
     {
-        public int numPrey;
-        public int numPredators;
-        public int numObstacles;
-        public int numIterations;
+        public int NumPrey { get; set; }
+        public int NumPredators { get; set; }
+        public int NumObstacles { get; set; }
+        public int NumIterations { get; set; }
 
-        public StringBuilder sb { get; set; }
+        private int _iterationCounter;
+
+        public StringBuilder SbOcean { get; set; }
+
+        public event EventHandler NextIteration;
+        public event EventHandler InitOcean;
+
 
         public FormOcean()
         {
@@ -25,38 +31,24 @@ namespace OceanWinForms.View
 
             lbOceanField.Text = String.Empty;
             lbOceanField.MaximumSize = new Size(639, 0);
-
-            if(int.TryParse(tbPreyInput.Text, out numPrey))
-            {
-                numPrey = int.Parse(tbPreyInput.Text);
-            }
-
-            if (int.TryParse(tbPredInput.Text, out numPredators))
-            {
-                numPredators = int.Parse(tbPredInput.Text);
-            }
-
-            if (int.TryParse(tbPreyInput.Text, out numObstacles))
-            {
-
-                numObstacles = int.Parse(tbObstInput.Text);
-            }
-
-            if (int.TryParse(tbPreyInput.Text, out numIterations))
-            {
-                numIterations = int.Parse(tbIterInput.Text);
-            }
         }
 
-        public event EventHandler NextIteration;
-        public event EventHandler InitOcean;
-
-        private void button1_Click(object sender, EventArgs e)
+        private void GetInput()
         {
-            this.InitOcean?.Invoke(this, EventArgs.Empty);
+            this.NumPrey = int.Parse(tbPreyInput.Text);
+            this.NumPredators = int.Parse(tbPredInput.Text);
+            this.NumObstacles = int.Parse(tbObstInput.Text);
+            this.NumIterations = int.Parse(tbIterInput.Text);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void CreateOcean_Click(object sender, EventArgs e)
+        {
+            GetInput();
+            this.InitOcean?.Invoke(this, EventArgs.Empty);
+            lbOceanField.Text = SbOcean.ToString();
+        }
+
+        private void StartProcess_Click(object sender, EventArgs e)
         {
             InitTimer();
         }
@@ -64,16 +56,27 @@ namespace OceanWinForms.View
         public void InitTimer()
         {
             timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 25; 
+            timer1.Tick += new EventHandler(Timer1_Tick);
+            timer1.Interval = 125; 
             timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
+            if(this._iterationCounter >= this.NumIterations)
+            {
+                Stop_Click(sender, e);
+            }
+
             this.NextIteration?.Invoke(this, EventArgs.Empty);
-            lbOceanField.Text = sb.ToString();
+            lbOceanField.Text = SbOcean.ToString();
+
+            this._iterationCounter += 1;
         }
 
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
     }
 }

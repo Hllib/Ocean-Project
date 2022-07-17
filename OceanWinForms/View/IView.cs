@@ -11,6 +11,11 @@ namespace OceanWinForms.View
         event EventHandler NextIteration;
         event EventHandler InitOcean;
 
-        StringBuilder sb { get; set; }
+        StringBuilder SbOcean { get; set; }
+
+        int NumPrey { get; set; }
+        int NumPredators { get; set; }
+        int NumObstacles { get; set; }
+        int NumIterations { get; set; }
     }
 }

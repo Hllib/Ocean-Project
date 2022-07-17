@@ -29,40 +29,46 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcean));
             this.tbPreyInput = new System.Windows.Forms.TextBox();
             this.tbPredInput = new System.Windows.Forms.TextBox();
             this.tbObstInput = new System.Windows.Forms.TextBox();
             this.tbIterInput = new System.Windows.Forms.TextBox();
             this.lbOceanField = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btCreate = new System.Windows.Forms.Button();
+            this.btStart = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btStop = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbPreyInput
             // 
-            this.tbPreyInput.Location = new System.Drawing.Point(33, 21);
+            this.tbPreyInput.Location = new System.Drawing.Point(52, 314);
             this.tbPreyInput.Name = "tbPreyInput";
             this.tbPreyInput.Size = new System.Drawing.Size(100, 31);
             this.tbPreyInput.TabIndex = 0;
             // 
             // tbPredInput
             // 
-            this.tbPredInput.Location = new System.Drawing.Point(171, 21);
+            this.tbPredInput.Location = new System.Drawing.Point(52, 364);
             this.tbPredInput.Name = "tbPredInput";
             this.tbPredInput.Size = new System.Drawing.Size(100, 31);
             this.tbPredInput.TabIndex = 0;
             // 
             // tbObstInput
             // 
-            this.tbObstInput.Location = new System.Drawing.Point(305, 21);
+            this.tbObstInput.Location = new System.Drawing.Point(52, 418);
             this.tbObstInput.Name = "tbObstInput";
             this.tbObstInput.Size = new System.Drawing.Size(100, 31);
             this.tbObstInput.TabIndex = 0;
             // 
             // tbIterInput
             // 
-            this.tbIterInput.Location = new System.Drawing.Point(440, 21);
+            this.tbIterInput.Location = new System.Drawing.Point(52, 474);
             this.tbIterInput.Name = "tbIterInput";
             this.tbIterInput.Size = new System.Drawing.Size(100, 31);
             this.tbIterInput.TabIndex = 0;
@@ -70,8 +76,8 @@
             // lbOceanField
             // 
             this.lbOceanField.AutoSize = true;
-            this.lbOceanField.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbOceanField.Location = new System.Drawing.Point(300, 231);
+            this.lbOceanField.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbOceanField.Location = new System.Drawing.Point(326, 308);
             this.lbOceanField.Name = "lbOceanField";
             this.lbOceanField.Size = new System.Drawing.Size(215, 37);
             this.lbOceanField.TabIndex = 1;
@@ -79,44 +85,80 @@
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // button1
+            // btCreate
             // 
-            this.button1.Location = new System.Drawing.Point(691, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btCreate.Location = new System.Drawing.Point(8, 43);
+            this.btCreate.Name = "btCreate";
+            this.btCreate.Size = new System.Drawing.Size(180, 65);
+            this.btCreate.TabIndex = 2;
+            this.btCreate.Text = "Create Ocean";
+            this.btCreate.UseVisualStyleBackColor = true;
+            this.btCreate.Click += new System.EventHandler(this.CreateOcean_Click);
             // 
-            // button2
+            // btStart
             // 
-            this.button2.Location = new System.Drawing.Point(580, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 40);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btStart.Location = new System.Drawing.Point(8, 114);
+            this.btStart.Name = "btStart";
+            this.btStart.Size = new System.Drawing.Size(180, 65);
+            this.btStart.TabIndex = 3;
+            this.btStart.Text = "Start ";
+            this.btStart.UseVisualStyleBackColor = true;
+            this.btStart.Click += new System.EventHandler(this.StartProcess_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btStop);
+            this.panel1.Controls.Add(this.btStart);
+            this.panel1.Controls.Add(this.btCreate);
+            this.panel1.Controls.Add(this.tbPreyInput);
+            this.panel1.Controls.Add(this.tbPredInput);
+            this.panel1.Controls.Add(this.tbObstInput);
+            this.panel1.Controls.Add(this.tbIterInput);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(945, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 703);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbOceanField);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(945, 703);
+            this.panel2.TabIndex = 5;
+            // 
+            // btStop
+            // 
+            this.btStop.Location = new System.Drawing.Point(6, 185);
+            this.btStop.Name = "btStop";
+            this.btStop.Size = new System.Drawing.Size(180, 65);
+            this.btStop.TabIndex = 4;
+            this.btStop.Text = "Stop";
+            this.btStop.UseVisualStyleBackColor = true;
+            this.btStop.Click += new System.EventHandler(this.Stop_Click);
             // 
             // FormOcean
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbOceanField);
-            this.Controls.Add(this.tbIterInput);
-            this.Controls.Add(this.tbObstInput);
-            this.Controls.Add(this.tbPredInput);
-            this.Controls.Add(this.tbPreyInput);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1145, 703);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOcean";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormOcean";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -128,7 +170,10 @@
         private System.Windows.Forms.TextBox tbIterInput;
         private System.Windows.Forms.Label lbOceanField;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btCreate;
+        private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btStop;
     }
 }
