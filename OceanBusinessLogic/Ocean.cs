@@ -24,7 +24,7 @@ namespace OceanBusinessLogic
 
         #region "Initialization"
         Random random = new Random();
-        public void Initialize()
+        public void SetDefaultSettings()
         {
             Ocean ocean = new Ocean();
 

@@ -13,9 +13,13 @@ namespace OceanWinForms.View
 
         StringBuilder SbOcean { get; set; }
 
-        int NumPrey { get; set; }
-        int NumPredators { get; set; }
-        int NumObstacles { get; set; }
-        int NumIterations { get; set; }
+        int NumPrey { get; set; } // user-defined
+        int NumPredators { get; set; } 
+        int NumObstacles { get; set; } 
+        int NumIterations { get; set; } 
+
+        int PreyQuantity { get; set; } // current amount 
+        int PredQuantity { get; set; } 
+        int IterationCounter { get; set; } // current iteration number
     }
 }

@@ -14,7 +14,7 @@ namespace OceanOnLibrarySetup
             Ocean myOcean = new Ocean();
             Viewer myViewer = new Viewer();
 
-            myOcean.Initialize();
+            myOcean.SetDefaultSettings();
             myViewer.InputInfo(ref myOcean.numPrey, ref myOcean.numPredators, ref myOcean.numObstacles, ref myOcean.numIterations);
             myOcean.FillOcean();
 

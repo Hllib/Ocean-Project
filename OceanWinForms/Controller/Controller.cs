@@ -32,18 +32,28 @@ namespace OceanWinForms.Controller
             this._myOcean.numIterations = this._view.NumIterations;
         }
 
+        private void GetStats()
+        {
+            this._view.PreyQuantity = this._myOcean.CountPrey();
+            this._view.PredQuantity = this._myOcean.CountPredators();
+        }
+
         private void View_InitOcean(object sender, EventArgs e)
         {
-            this._myOcean.Initialize();
+            this._myOcean.SetDefaultSettings();
+
             SetInput();
             this._myOcean.FillOcean();
 
+            GetStats();
             this._view.SbOcean = this._myOcean.ReturnOceanString();
         }
 
         private void View_NextIteration(object sender, EventArgs e)
         {
             this._myOcean.Run();
+
+            GetStats();
             this._view.SbOcean = this._myOcean.ReturnOceanString();
         }
     }
