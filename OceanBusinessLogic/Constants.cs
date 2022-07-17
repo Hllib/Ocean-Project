@@ -14,7 +14,7 @@ namespace OceanBusinessLogic
         public const int DefaultNumObstacles = 75;
         public const int DefaultNumPredators = 20;
         public const int DefaultNumPrey = 150;
-        public const int DefaultNumIterations = 1000;
+        public const int DefaultNumIterations = 250;
 
         public const char DefaultImage = '-';
         public const char DefaultPreyImage = 'f';

@@ -10,6 +10,7 @@ namespace OceanWinForms.View
     {
         event EventHandler NextIteration;
         event EventHandler InitOcean;
+        event EventHandler SetDefaultOcean;
 
         StringBuilder SbOcean { get; set; }
 

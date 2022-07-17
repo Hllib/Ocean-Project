@@ -19,9 +19,18 @@ namespace OceanWinForms.Controller
         {
             this._view = view;
             this._myOcean = new Ocean();
-
+            
             this._view.NextIteration += View_NextIteration;
-            this._view.InitOcean += View_InitOcean;         
+            this._view.InitOcean += View_InitOcean;
+            this._view.SetDefaultOcean += View_SetDefaultOcean;
+        }
+
+        private void View_SetDefaultOcean(object sender, EventArgs e)
+        {
+            this._view.NumPrey = Constants.DefaultNumPrey;
+            this._view.NumPredators = Constants.DefaultNumPredators;
+            this._view.NumObstacles = Constants.DefaultNumObstacles;
+            this._view.NumIterations = Constants.DefaultNumIterations;
         }
 
         private void SetInput()
@@ -41,7 +50,7 @@ namespace OceanWinForms.Controller
         private void View_InitOcean(object sender, EventArgs e)
         {
             this._myOcean.SetDefaultSettings();
-
+      
             SetInput();
             this._myOcean.FillOcean();
 
