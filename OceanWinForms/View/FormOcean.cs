@@ -189,6 +189,21 @@ namespace OceanWinForms.View
             ChangeImages();
             ShowStats();           
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            var exitMB = MessageBox.Show("Do you want to leave?", "Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if (exitMB == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            if (exitMB == DialogResult.No)
+            {
+                return;
+            }
+        }
         #endregion
     }
 }

@@ -13,6 +13,7 @@ namespace OceanWinForms.Controller
     {
         public int X { get; set; }
         public int Y { get; set; }
+
         public CustomButton(int x, int y)
         {
             this.X = x;
