@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OceanWinForms.Controller;
+
 
 namespace OceanWinForms.View
 {
@@ -17,27 +19,57 @@ namespace OceanWinForms.View
         public int NumPredators { get; set; }
         public int NumObstacles { get; set; }
         public int NumIterations { get; set; }
+        public int NumRows { get; set; }
+        public int NumColumns { get; set; }
 
         public int IterationCounter { get; set; }
         public int PreyQuantity { get; set; }
         public int PredQuantity { get; set; }
 
-
-        public StringBuilder SbOcean { get; set; }
+        public Bitmap[,] CellImages { get; set; }
 
         public event EventHandler NextIteration;
         public event EventHandler InitOcean;
         public event EventHandler SetDefaultOcean;
+
         #endregion
 
         public FormOcean()
         {
             InitializeComponent();
 
-            lbOceanField.Text = String.Empty;
-            lbOceanField.MaximumSize = new Size(639, 0);
-
             DisableButtons();
+            CreateLayoutPanel();
+        }
+
+        public void CreateLayoutPanel()
+        {
+            LayoutOceanField.RowCount = this.NumRows = 23;
+            LayoutOceanField.ColumnCount = this.NumColumns = 35;
+
+            for (int row = 0; row < this.NumRows; row++)
+            {
+                for (int col = 0; col < this.NumColumns; col++)
+                {                  
+                    LayoutOceanField.Controls.Add(SetButton(row, col), col, row);
+                }
+            }
+        }
+
+        public CustomButton SetButton(int x, int y)
+        {
+            CustomButton button = new CustomButton(x, y);
+            button.Width = 25;
+            button.Height = 25;
+
+            button.BackColor = Color.Transparent;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button.ForeColor = System.Drawing.Color.White;
+
+            return button;
         }
 
         private void DisableButtons()
@@ -54,10 +86,10 @@ namespace OceanWinForms.View
         {
             try
             {
-                this.NumPrey = int.Parse(maskedTextBox1.Text);
-                this.NumPredators = int.Parse(maskedTextBox2.Text);
-                this.NumObstacles = int.Parse(maskedTextBox3.Text);
-                this.NumIterations = int.Parse(maskedTextBox4.Text);
+                this.NumPrey = int.Parse(tbInputPrey.Text);
+                this.NumPredators = int.Parse(tbInputPred.Text);
+                this.NumObstacles = int.Parse(tbInputObst.Text);
+                this.NumIterations = int.Parse(tbInputIter.Text);
             }
             catch(FormatException)
             {
@@ -89,6 +121,23 @@ namespace OceanWinForms.View
             return false;
         }
 
+        public void ChangeImages()
+        {
+            for (int i = 0; i < this.NumRows; i++)
+            {
+                for (int j = 0; j < this.NumColumns; j++)
+                {
+                    foreach(var button in LayoutOceanField.Controls.OfType<CustomButton>())
+                    {
+                        if(button.X == i && button.Y == j)
+                        {
+                            button.Image = CellImages[i, j];
+                        }
+                    }                
+                }
+            }
+        }
+
         #region "button events"
         public void CreateOcean_Click(object sender, EventArgs e)
         {
@@ -99,7 +148,7 @@ namespace OceanWinForms.View
             this.InitOcean?.Invoke(this, EventArgs.Empty);
 
             ShowStats();
-            lbOceanField.Text = SbOcean.ToString();
+            ChangeImages();
 
             btStart.Enabled = true;
         }
@@ -108,17 +157,19 @@ namespace OceanWinForms.View
         {
             InitTimer();
             btStop.Enabled = true;
+            btStart.Enabled = false;
         }
         private void StopProcess_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            btStart.Enabled = true;
         }
 
         public void InitTimer()
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(Timer1_Tick);
-            timer1.Interval = 50; 
+            timer1.Interval = 250; 
             timer1.Start();
         }
 
@@ -135,8 +186,7 @@ namespace OceanWinForms.View
             }
 
             this.NextIteration?.Invoke(this, EventArgs.Empty);
-
-            lbOceanField.Text = SbOcean.ToString();
+            ChangeImages();
             ShowStats();           
         }
         #endregion

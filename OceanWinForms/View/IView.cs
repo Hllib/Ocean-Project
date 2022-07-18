@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace OceanWinForms.View
 {
@@ -12,12 +13,14 @@ namespace OceanWinForms.View
         event EventHandler InitOcean;
         event EventHandler SetDefaultOcean;
 
-        StringBuilder SbOcean { get; set; }
+        Bitmap[,] CellImages { get; set; }
 
         int NumPrey { get; set; } // user-defined
         int NumPredators { get; set; } 
         int NumObstacles { get; set; } 
         int NumIterations { get; set; } 
+        int NumRows { get; set; }
+        int NumColumns { get; set; }
 
         int PreyQuantity { get; set; } // current amount 
         int PredQuantity { get; set; } 

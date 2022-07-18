@@ -8,8 +8,8 @@ namespace OceanBusinessLogic
 {
     public static class Constants
     {
-        public const int MaxRows = 25;
-        public const int MaxCols = 70;
+        public const int MaxRows = 23;
+        public const int MaxCols = 35;
 
         public const int DefaultNumObstacles = 75;
         public const int DefaultNumPredators = 20;
