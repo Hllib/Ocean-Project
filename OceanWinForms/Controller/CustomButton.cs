@@ -18,6 +18,16 @@ namespace OceanWinForms.Controller
         {
             this.X = x;
             this.Y = y;
+
+            Width = 25;
+            Height = 25;
+
+            BackColor = Color.Transparent;
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderSize = 0;
+            FlatAppearance.MouseDownBackColor = Color.Transparent;
+            FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ForeColor = System.Drawing.Color.White;
         }
     }
 }

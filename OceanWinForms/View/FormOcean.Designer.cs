@@ -51,10 +51,10 @@
             this.tbInputObst = new System.Windows.Forms.MaskedTextBox();
             this.tbInputPred = new System.Windows.Forms.MaskedTextBox();
             this.tbInputPrey = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbInputIter = new System.Windows.Forms.Label();
+            this.lbInputObst = new System.Windows.Forms.Label();
+            this.lbInputPred = new System.Windows.Forms.Label();
+            this.lbInputPrey = new System.Windows.Forms.Label();
             this.lbDemandInput = new System.Windows.Forms.Label();
             this.panelOceanField = new System.Windows.Forms.Panel();
             this.LayoutOceanField = new System.Windows.Forms.TableLayoutPanel();
@@ -101,10 +101,10 @@
             this.panelMenu.Controls.Add(this.tbInputObst);
             this.panelMenu.Controls.Add(this.tbInputPred);
             this.panelMenu.Controls.Add(this.tbInputPrey);
-            this.panelMenu.Controls.Add(this.label4);
-            this.panelMenu.Controls.Add(this.label3);
-            this.panelMenu.Controls.Add(this.label2);
-            this.panelMenu.Controls.Add(this.label1);
+            this.panelMenu.Controls.Add(this.lbInputIter);
+            this.panelMenu.Controls.Add(this.lbInputObst);
+            this.panelMenu.Controls.Add(this.lbInputPred);
+            this.panelMenu.Controls.Add(this.lbInputPrey);
             this.panelMenu.Controls.Add(this.lbDemandInput);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelMenu.Location = new System.Drawing.Point(1271, 0);
@@ -296,45 +296,45 @@
             this.tbInputPrey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbInputPrey.ValidatingType = typeof(int);
             // 
-            // label4
+            // lbInputIter
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(5, 818);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 28);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Iterations:";
+            this.lbInputIter.AutoSize = true;
+            this.lbInputIter.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInputIter.Location = new System.Drawing.Point(5, 818);
+            this.lbInputIter.Name = "lbInputIter";
+            this.lbInputIter.Size = new System.Drawing.Size(155, 28);
+            this.lbInputIter.TabIndex = 6;
+            this.lbInputIter.Text = "Iterations:";
             // 
-            // label3
+            // lbInputObst
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(8, 760);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 28);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Obstacles:";
+            this.lbInputObst.AutoSize = true;
+            this.lbInputObst.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInputObst.Location = new System.Drawing.Point(8, 760);
+            this.lbInputObst.Name = "lbInputObst";
+            this.lbInputObst.Size = new System.Drawing.Size(142, 28);
+            this.lbInputObst.TabIndex = 6;
+            this.lbInputObst.Text = "Obstacles:";
             // 
-            // label2
+            // lbInputPred
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(8, 693);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 28);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Predators:";
+            this.lbInputPred.AutoSize = true;
+            this.lbInputPred.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInputPred.Location = new System.Drawing.Point(8, 693);
+            this.lbInputPred.Name = "lbInputPred";
+            this.lbInputPred.Size = new System.Drawing.Size(142, 28);
+            this.lbInputPred.TabIndex = 6;
+            this.lbInputPred.Text = "Predators:";
             // 
-            // label1
+            // lbInputPrey
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(8, 624);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 28);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Prey:";
+            this.lbInputPrey.AutoSize = true;
+            this.lbInputPrey.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInputPrey.Location = new System.Drawing.Point(8, 624);
+            this.lbInputPrey.Name = "lbInputPrey";
+            this.lbInputPrey.Size = new System.Drawing.Size(77, 28);
+            this.lbInputPrey.TabIndex = 6;
+            this.lbInputPrey.Text = "Prey:";
             // 
             // lbDemandInput
             // 
@@ -407,10 +407,10 @@
         private System.Windows.Forms.Label lbPredStats;
         private System.Windows.Forms.Label lbPreyStats;
         private System.Windows.Forms.Label lbDemandInput;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbInputIter;
+        private System.Windows.Forms.Label lbInputObst;
+        private System.Windows.Forms.Label lbInputPred;
+        private System.Windows.Forms.Label lbInputPrey;
         private System.Windows.Forms.MaskedTextBox tbInputPrey;
         private System.Windows.Forms.MaskedTextBox tbInputIter;
         private System.Windows.Forms.MaskedTextBox tbInputObst;

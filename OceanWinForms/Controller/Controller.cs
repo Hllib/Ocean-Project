@@ -14,6 +14,10 @@ namespace OceanWinForms.Controller
         private readonly IView _view;
         private readonly Ocean _myOcean;
 
+        private readonly Bitmap preyImage = new Bitmap("prey.png");
+        private readonly Bitmap predImage = new Bitmap("predator.png");
+        private readonly Bitmap obstImage = new Bitmap("obstacle.png");
+
         public Controller(IView view)
         {
             this._view = view;
@@ -27,7 +31,7 @@ namespace OceanWinForms.Controller
             this._view.InitOcean += View_InitOcean;
             this._view.SetDefaultOcean += View_SetDefaultOcean;
         }
-        
+
         public Bitmap[,] ReturnCellImages()
         {
             Bitmap[,] returnCellImages = new Bitmap[this._myOcean.numRows, this._myOcean.numCols];
@@ -38,17 +42,17 @@ namespace OceanWinForms.Controller
                 {
                     if (this._myOcean.cells[row, col].GetType() == typeof(Prey))
                     {
-                        returnCellImages[row, col] = new Bitmap("prey.png");
+                        returnCellImages[row, col] = preyImage;
                     }
 
                     if (this._myOcean.cells[row, col].GetType() == typeof(Predator))
                     {
-                        returnCellImages[row, col] = new Bitmap("predator.png");
+                        returnCellImages[row, col] = predImage;
                     }
 
                     if (this._myOcean.cells[row, col].GetType() == typeof(Obstacle))
                     {
-                        returnCellImages[row, col] = new Bitmap("obstacle.png");
+                        returnCellImages[row, col] = obstImage;
                     }
                 }
             }

@@ -51,25 +51,9 @@ namespace OceanWinForms.View
             {
                 for (int col = 0; col < this.NumColumns; col++)
                 {                  
-                    LayoutOceanField.Controls.Add(SetButton(row, col), col, row);
+                    LayoutOceanField.Controls.Add(new CustomButton(row, col), col, row);
                 }
             }
-        }
-
-        public CustomButton SetButton(int x, int y)
-        {
-            CustomButton button = new CustomButton(x, y);
-            button.Width = 25;
-            button.Height = 25;
-
-            button.BackColor = Color.Transparent;
-            button.FlatStyle = FlatStyle.Flat;
-            button.FlatAppearance.BorderSize = 0;
-            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button.ForeColor = System.Drawing.Color.White;
-
-            return button;
         }
 
         private void DisableButtons()
