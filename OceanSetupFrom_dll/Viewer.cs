@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OceanBusinessLogic;
 
-namespace OceanOnLibrarySetup
+namespace OceanProject
 {
     internal class Viewer
     {
@@ -14,7 +14,8 @@ namespace OceanOnLibrarySetup
 
         protected bool IsNoPrey;
         protected bool IsNoPred;
-        protected static void WriteAt(char ch, int x, int y)
+
+        private static void WriteAt(char ch, int x, int y)
         {
             try
             {

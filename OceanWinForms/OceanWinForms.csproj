@@ -72,6 +72,7 @@
     <EmbeddedResource Include="View\FormOcean.resx">
       <DependentUpon>FormOcean.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagramWinForms.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -14,7 +14,7 @@ namespace PracticeOceanProject
 
         protected bool IsNoPrey;
         protected bool IsNoPred;
-        protected static void ReDrawElement(char ch, int x, int y)
+        private static void ReDrawElement(char ch, int x, int y)
         {
             try
             {

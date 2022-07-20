@@ -33,10 +33,13 @@ namespace OceanWinForms.View
         public event EventHandler SetDefaultOcean;
 
         #endregion
-
+       
         public FormOcean()
         {
             InitializeComponent();
+
+            this.NumRows = 23;
+            this.NumColumns = 35;
 
             DisableButtons();
             CreateLayoutPanel();
@@ -44,8 +47,8 @@ namespace OceanWinForms.View
 
         public void CreateLayoutPanel()
         {
-            LayoutOceanField.RowCount = this.NumRows = 23;
-            LayoutOceanField.ColumnCount = this.NumColumns = 35;
+            LayoutOceanField.RowCount = this.NumRows;
+            LayoutOceanField.ColumnCount = this.NumColumns;
 
             for (int row = 0; row < this.NumRows; row++)
             {
@@ -143,6 +146,7 @@ namespace OceanWinForms.View
             btStop.Enabled = true;
             btStart.Enabled = false;
         }
+
         private void StopProcess_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -153,7 +157,7 @@ namespace OceanWinForms.View
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(Timer1_Tick);
-            timer1.Interval = 250; 
+            timer1.Interval = 85; 
             timer1.Start();
         }
 

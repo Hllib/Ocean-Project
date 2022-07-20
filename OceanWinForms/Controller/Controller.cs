@@ -23,10 +23,6 @@ namespace OceanWinForms.Controller
             this._view = view;
             this._myOcean = new Ocean();
 
-
-            this._view.NumRows = 23; //preferred values for Win Forms maximized window
-            this._view.NumColumns = 35; //preferred values for Win Forms maximized window
-
             this._view.NextIteration += View_NextIteration;
             this._view.InitOcean += View_InitOcean;
             this._view.SetDefaultOcean += View_SetDefaultOcean;

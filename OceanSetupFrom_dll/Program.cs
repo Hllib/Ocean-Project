@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using OceanBusinessLogic;
 
-namespace OceanOnLibrarySetup
+namespace OceanProject
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            //var form = new FormOcean();
+            //var controller = new Controller.Controller(form);
+
             Ocean myOcean = new Ocean();
             Viewer myViewer = new Viewer();
 

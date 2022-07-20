@@ -11,9 +11,9 @@ namespace OceanBusinessLogic
         public const int MaxRows = 23;
         public const int MaxCols = 35;
 
-        public const int DefaultNumObstacles = 75;
-        public const int DefaultNumPredators = 20;
-        public const int DefaultNumPrey = 150;
+        public const int DefaultNumObstacles = 60;
+        public const int DefaultNumPredators = 15;
+        public const int DefaultNumPrey = 100;
         public const int DefaultNumIterations = 250;
 
         public const char DefaultImage = '-';

@@ -47,7 +47,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Coordinate.cs" />
     <Compile Include="IMovable.cs" />
-    <Compile Include="InvalidInputException.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Ocean.cs" />
     <Compile Include="Predator.cs" />
@@ -58,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
