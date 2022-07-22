@@ -33,7 +33,8 @@ namespace OceanWinForms.View
         public event EventHandler SetDefaultOcean;
 
         #endregion
-       
+
+        #region "UI methods"
         public FormOcean()
         {
             InitializeComponent();
@@ -93,19 +94,10 @@ namespace OceanWinForms.View
             tbIterCounter.Text = String.Format("{0}/{1}",this.IterationCounter, this.NumIterations);
         }
 
-        public bool ExitCondition()
+        public bool IsExitCondition() 
         {
-            if (this.IterationCounter >= this.NumIterations)
-            {
-                return true;
-            }
-
-            if (this.PredQuantity == 0 || this.PreyQuantity == 0)
-            {
-                return true;
-            }
-
-            return false;
+            return (this.IterationCounter >= this.NumIterations)
+                || (this.PredQuantity == 0 || this.PreyQuantity == 0);
         }
 
         public void ChangeImages()
@@ -124,8 +116,9 @@ namespace OceanWinForms.View
                 }
             }
         }
+        #endregion
 
-        #region "button events"
+        #region "button handlers"
         public void CreateOcean_Click(object sender, EventArgs e)
         {
             this.IterationCounter = 0;
@@ -149,25 +142,25 @@ namespace OceanWinForms.View
 
         private void StopProcess_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            timerSystemTimer.Stop();
             btStart.Enabled = true;
         }
 
         public void InitTimer()
         {
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(Timer1_Tick);
-            timer1.Interval = 85; 
-            timer1.Start();
+            timerSystemTimer = new Timer();
+            timerSystemTimer.Tick += new EventHandler(Timer_Tick);
+            timerSystemTimer.Interval = 85; //TODO: add regulator
+            timerSystemTimer.Start();
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             this.IterationCounter += 1;
             this.progressBar1.Maximum = this.NumIterations;
             this.progressBar1.Value = this.IterationCounter;
 
-            if (ExitCondition())
+            if (IsExitCondition())
             {
                 StopProcess_Click(sender, e);
                 DisableButtons();

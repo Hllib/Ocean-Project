@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcean));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerSystemTimer = new System.Windows.Forms.Timer(this.components);
             this.btCreate = new System.Windows.Forms.Button();
             this.btStart = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -66,7 +66,7 @@
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.timerSystemTimer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // btCreate
             // 
@@ -393,7 +393,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerSystemTimer;
         private System.Windows.Forms.Button btCreate;
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.Panel panelMenu;

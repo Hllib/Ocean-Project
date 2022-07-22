@@ -30,23 +30,23 @@ namespace OceanWinForms.Controller
 
         public Bitmap[,] ReturnCellImages()
         {
-            Bitmap[,] returnCellImages = new Bitmap[this._myOcean.numRows, this._myOcean.numCols];
+            Bitmap[,] returnCellImages = new Bitmap[_myOcean.numRows, _myOcean.numCols];
 
             for(int row = 0; row < this._myOcean.numRows; row ++)
             {
                 for(int col = 0; col < this._myOcean.numCols; col ++)
                 {
-                    if (this._myOcean.cells[row, col].GetType() == typeof(Prey))
+                    if (_myOcean.cells[row, col].GetType() == typeof(Prey))
                     {
                         returnCellImages[row, col] = preyImage;
                     }
 
-                    if (this._myOcean.cells[row, col].GetType() == typeof(Predator))
+                    if (_myOcean.cells[row, col].GetType() == typeof(Predator))
                     {
                         returnCellImages[row, col] = predImage;
                     }
 
-                    if (this._myOcean.cells[row, col].GetType() == typeof(Obstacle))
+                    if (_myOcean.cells[row, col].GetType() == typeof(Obstacle))
                     {
                         returnCellImages[row, col] = obstImage;
                     }
@@ -58,43 +58,43 @@ namespace OceanWinForms.Controller
 
         private void View_SetDefaultOcean(object sender, EventArgs e)
         {
-            this._view.NumPrey = Constants.DefaultNumPrey;
-            this._view.NumPredators = Constants.DefaultNumPredators;
-            this._view.NumObstacles = Constants.DefaultNumObstacles;
-            this._view.NumIterations = Constants.DefaultNumIterations;
+            _view.NumPrey = Constants.DefaultNumPrey;
+            _view.NumPredators = Constants.DefaultNumPredators;
+            _view.NumObstacles = Constants.DefaultNumObstacles; 
+            _view.NumIterations = Constants.DefaultNumIterations;
         }
 
         private void SetInput()
         {
-            this._myOcean.numPrey = this._view.NumPrey;
-            this._myOcean.numPredators = this._view.NumPredators;
-            this._myOcean.numObstacles = this._view.NumObstacles;
-            this._myOcean.numIterations = this._view.NumIterations;
+            _myOcean.numPrey = _view.NumPrey;
+            _myOcean.numPredators = _view.NumPredators;
+            _myOcean.numObstacles = _view.NumObstacles;
+            _myOcean.numIterations = _view.NumIterations;
         }
 
         private void GetStats()
         {
-            this._view.PreyQuantity = this._myOcean.CountPrey();
-            this._view.PredQuantity = this._myOcean.CountPredators();
+            _view.PreyQuantity = this._myOcean.CountPrey();
+            _view.PredQuantity = this._myOcean.CountPredators();
         }
 
         private void View_InitOcean(object sender, EventArgs e)
         {
-            this._myOcean.SetDefaultSettings();
+            _myOcean.SetDefaultSettings();
       
             SetInput();
-            this._myOcean.FillOcean();
+            _myOcean.FillOcean();
 
             GetStats();
-            this._view.CellImages = this.ReturnCellImages(); 
+            _view.CellImages = ReturnCellImages(); 
         }
 
         private void View_NextIteration(object sender, EventArgs e)
         {
-            this._myOcean.Run();
+            _myOcean.Run();
 
             GetStats();
-            this._view.CellImages = this.ReturnCellImages();
+            _view.CellImages = ReturnCellImages();
         }
     }
 }
